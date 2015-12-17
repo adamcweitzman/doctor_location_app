@@ -1,9 +1,13 @@
 var express = require('express');
 var router = express.Router();
+var medical_data = require('../model/Medical_Data')
 
-/* GET home page. */
+
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
-});
+	console.log(medical_data, "medical_data is...")
+    medical_data.find({'State':'CT'}, function(err, data) {
+    res.json(data);
+    });
+ });
 
 module.exports = router;
