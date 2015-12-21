@@ -8,10 +8,14 @@ router.get('/', function(req, res, next) {
  });
 
 router.get('/data', function(req, res, next) {
-    q = medical_data.find({'State':'AZ'}).limit(100)
+    q = medical_data.find({'City':'SAN FRANCISCO'}).limit(10)
     q.exec(function(err, data) {
     	res.json(data)
     });
  });
+
+router.get('/map', function(req, res, next) {
+	res.render('map')
+})
 
 module.exports = router;
