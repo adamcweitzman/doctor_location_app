@@ -27,6 +27,7 @@ app.use('/users', users);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
+  console.log('i bet you some file has not loaded :)')
   err.status = 404;
   next(err);
 });
