@@ -8,8 +8,9 @@ router.get('/', function(req, res, next) {
  });
 
 router.get('/data', function(req, res, next) {
-    medical_data.findOne({'State':'AZ'}, function(err, data) {
-    	res.json(data);
+    q = medical_data.find({'State':'AZ'}).limit(100)
+    q.exec(function(err, data) {
+    	res.json(data)
     });
  });
 
