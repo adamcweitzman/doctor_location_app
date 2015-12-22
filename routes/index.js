@@ -16,6 +16,12 @@ router.get('/data', function(req, res, next) {
 
 router.get('/map', function(req, res, next) {
 	res.render('map')
-})
+});
+
+router.post('/search', function(req, res, next) {
+	console.log('in search')
+	console.log(req.body.houseNumber)
+	res.redirect('map')
+});
 
 module.exports = router;
