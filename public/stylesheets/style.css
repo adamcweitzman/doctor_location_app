@@ -9,35 +9,22 @@ a {
 
 
 
-/*.chart div {
-  font: 10px sans-serif;
-  background-color: blue;
-  text-align: right;
-  padding: 3px;
-  margin: 1px;
-  color: white;
+body { 
+  margin:0; padding:0; 
 }
 
-#map {
-  width: 500px;
-  height: 250px;
+#map { 
+  position:absolute; top:0; bottom:0; width:100%; 
 }
 
-svg {
-  position: relative;
+pre.ui-coordinates {
+  position:absolute;
+  bottom:10px;
+  left:10px;
+  padding:5px 10px;
+  background:rgba(0,0,0,0.5);
+  color:#fff;
+  font-size:11px;
+  line-height:18px;
+  border-radius:3px;
 }
-
-path {
-  fill: #000;
-  fill-opacity: .2;
-  stroke: #fff;
-  stroke-width: 1.5px;
-}
-
-path:hover {
-  fill: brown;
-  fill-opacity: .7;
-}
-*/
-
-
