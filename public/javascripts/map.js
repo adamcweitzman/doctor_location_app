@@ -1,8 +1,8 @@
 $(function() {
 
-	var canvas = d3.select("body").append("svg")
-		.attr("width", 760)
-		.attr("height", 700)
+	var canvas = d3.select('#map').append("svg")
+		.attr("width", 300)
+		.attr("height", 200)
 
 	d3.json("us.geojson", function (data) {
 		var group = canvas.selectAll("g")
@@ -10,7 +10,7 @@ $(function() {
 		.enter()
 		.append("g")
 
-	var projection = d3.geo.mercator();
+	var projection = d3.geo.mercator().scale(200);
 	var path = d3.geo.path().projection(projection);
 
 	var areas = group.append("path")
