@@ -13,16 +13,6 @@ var circle = L.circle([37.78, -122], 500, {
     fillOpacity: 0.5
 }).addTo(map);
 
-//geocode address
-
-// var autocomplete = new google.maps.places("1000 mission street");
-// 	var places = autocomplete.getPlace();
-// 	var location = places.formatted_address
-// 	console.log('LAT', places.geometry.location.A)
-// 	console.log('LNG', places.geometry.location.B)
-
-
-
 geocoder = new google.maps.Geocoder();
 
 address = "1000 mission street"
