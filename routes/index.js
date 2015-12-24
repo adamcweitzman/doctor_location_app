@@ -15,7 +15,7 @@ router.get('/data', function(req, res, next) {
 
 router.get('/map', function(req, res, next) {
 	if (req.param('houseNumber')) {
-		console.log(req.param('houseNumber'))
+		// console.log(req.param('houseNumber'))
 	}
 	res.render('map')
 });
