@@ -1,36 +1,65 @@
 $(function() {
 
-	$('#addressParams').on('click', function() {
-		console.log($('#houseNumberID').val())
-	});
-
-	var map = L.map('map').setView([40, -99], 4);
-	// var map = L.map('map').setView([38, -122], 4);
+	var map = L.map('map').setView([38, -122], 4)
 
 	L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
 	    attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
 	}).addTo(map);
 
-	var circle = L.circle([37.78, -122], 500, {
-	    color: 'red',
-	    fillColor: '#f03',
-	    fillOpacity: 0.5
-	}).addTo(map);
+	$('#addressParams').on('click', function() {
+		var house = $('#houseNumberID').val()
+		var street = $('#streetID').val()
+		var city = $('#cityID').val()
+		var state = $('#stateID').val()
+		fullAddress = house.concat(" " + street + " " + city + " " + state)
+		getCoordinates(fullAddress)
+	});
 
-	geocoder = new google.maps.Geocoder();
+	// var map = L.map('map').setView([40, -99], 4);
+	// var map = L.map('map').setView([38, -122], 4);
 
-	address = "1000 mission street"
+	// L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+	//     attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+	// }).addTo(map);
 
-	function getCoordinates (address, callback) {
-		var coordinates;
+	// var circle = L.circle([37.78, -122], 500, {
+	//     color: 'red',
+	//     fillColor: '#f03',
+	//     fillOpacity: 0.5
+	// }).addTo(map);
+
+	// geocoder = new google.maps.Geocoder();
+	var fake = "1000 mission street san francisco CA"
+
+	
+
+	function getCoordinates (address) {
+		geocoder = new google.maps.Geocoder();
 		geocoder.geocode({ address: address}, function (results, status) {
 		coordinatesA = results[0].geometry.location.lat()
 		coordinatesB = results[0].geometry.location.lng()
-		console.log(coordinatesA, coordinatesB)
-		})
-	}
+		map.setView(L.latLng(coordinatesA, coordinatesB))
 
-	getCoordinates(address);
+		console.log(coordinatesA, coordinatesB)
+
+		L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+	    attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+	    }).addTo(map);
+
+	    var circle = L.circle([coordinatesA, coordinatesB], 500, {
+	    color: 'red',
+	    fillColor: '#f03',
+	    fillOpacity: 0.5
+		}).addTo(map);
+
+		})
+	};
+
+
+
+
+
+	
 
 	// $('#addressParams').on('click', function() {
 	// 	$.ajax({
