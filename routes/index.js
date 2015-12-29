@@ -7,7 +7,7 @@ router.get('/', function(req, res, next) {
  });
 
 router.get('/data', function(req, res, next) {
-    q = zips.find({'zip':32204}).limit(10)
+    q = zips.distinct('zip')
     q.exec(function(err, data) {
     	res.json(data)
     });
