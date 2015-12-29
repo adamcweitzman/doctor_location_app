@@ -6,8 +6,15 @@ router.get('/', function(req, res, next) {
 	res.render('index');
  });
 
+// router.get('/data', function(req, res, next) {
+//     q = zips.distinct('zip')
+//     q.exec(function(err, data) {
+//     	res.json(data)
+//     });
+//  });
+
 router.get('/data', function(req, res, next) {
-    q = zips.distinct('zip')
+    q = zips.find({}).limit(10)
     q.exec(function(err, data) {
     	res.json(data)
     });
