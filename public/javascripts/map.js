@@ -1,11 +1,6 @@
 
 $(function() {
 
-	//send ajax to get data and
-	//for each zip loop over the zipcodes object
-	//if zip
-
-
 	$.ajax({
 		url: '/data',
 		dataType: "json",
@@ -15,8 +10,8 @@ $(function() {
 			console.log(data[3].zip)
 		},
 		error: function(XMLHttpRequest, textStatus, errorThrown) {
-            alert("Status: " + textStatus); alert("Error: " + errorThrown);
-    	}
+	        alert("Status: " + textStatus); alert("Error: " + errorThrown);
+		}
 	});
 
 	var map = L.map('map').setView([38, -122], 4)
@@ -25,18 +20,21 @@ $(function() {
 	    attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
 	}).addTo(map);
 
-$('#addressParams').on('click', function() {
-	var zip = {
-		zipcode: $('#zipcodeID').val()
-	};
-	console.log('this is the zip', zip)
-    $.ajax({
-	    url: '/upload',
-	    data: zip,
-	    type: 'POST',
-	    success: function(data){
-	        console.log(data);
-	//loop over array of objects and create new array of unique zips and there numbers
+	$('#addressParams').on('click', function() {
+		var zip = {
+			zipcode: $('#zipcodeID').val()
+		};
+		console.log('this is the zip', zip)
+	    $.ajax({
+		    url: '/upload',
+		    data: zip,
+		    type: 'POST',
+		    success: function(data) {
+		    	console.log(data);
+		        //first get lat/lng for each zip
+		        //var marker = new L.marker([39.5, -77.3], { opacity: 0.01 });
+				// marker.bindLabel("My Label", {noHide: true, className: "my-label", offset: [0, 0] });
+				// marker.addTo(map);
 
 
 
@@ -44,17 +42,16 @@ $('#addressParams').on('click', function() {
 
 
 
-
-
-	    }
+		    }
+		});
+		var zipParam = $('#zipcodeID').val()
+		getCoordinates(zipParam)
 	});
-	var zipParam = $('#zipcodeID').val()
-	getCoordinates(zipParam)
-});
 
 	var fake = "1000 mission street san francisco CA"
 
 	function getCoordinates (address) {
+
 		geocoder = new google.maps.Geocoder();
 		geocoder.geocode({ address: address}, function (results, status) {
 		coordinatesA = results[0].geometry.location.lat()
