@@ -66,6 +66,38 @@ $('#addressParams').on('click', function() {
 		});
 	};
 
+	// setTimeout(function(){
+		$.ajax({
+		    url: '/upload',
+		    dataType: "json",
+		    type: 'GET',
+		    success: function(data){
+		        console.log('hello');
+	    }
+	});
+
+
+
+
+
+
+
+
+
+	 // }, 1000);
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 var zipcodes = [
 {"zip":210,"latitude":43.005895,"longitude":-71.013202},
