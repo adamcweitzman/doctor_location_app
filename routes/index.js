@@ -20,9 +20,23 @@ router.get('/data', function(req, res, next) {
     });
  });
 
+//db.collection.find( { field: { $gt: value1, $lt: value2 } } );
+
 router.post('/upload', function(req, res, next) {
-	console.log(req.body)
-	res.render('map')
+	console.log(req.body.zipcode)
+	var zipcode = req.body.zipcode
+	var plus1 = zipcode + 1
+	var plus2 = zipcode + 2
+	var plus3 = zipcode + 3
+	var minus1 = zipcode - 1
+	var minus2 = zipcode - 2
+	var minus3 = zipcode - 3
+	q = zips.find({ 'zip':{$in:[zipcode,plus1,plus2,plus3,minus1,minus2,minus3]}});
+	// q = zips.find({'zip':zipcode}).limit(10)
+    q.exec(function(err, data) {
+    	console.log(data)
+    	res.json(data)
+    });
 });
 
 // router.get('/upload', function(req, res, next) {
