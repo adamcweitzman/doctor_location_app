@@ -20,15 +20,24 @@ router.get('/data', function(req, res, next) {
     });
  });
 
+router.post('/upload', function(req, res, next) {
+	console.log(req.body)
+	res.render('map')
+});
+
+// router.get('/upload', function(req, res, next) {
+// 	console.log(req.body.zip)
+// 	res.render('map')
+// });
+
 router.get('/map', function(req, res, next) {
 	if (req.param('houseNumber')) {
 		// console.log(req.param('houseNumber'))
 	}
+	console.log(req.body.zipcode)
 	res.render('map')
 });
 
-router.post('/search', function(req, res, next) {
-});
 
 // router.get('/search', function(req, res, next) {
 // 	// res.json(req.body.houseNumber)

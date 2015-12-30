@@ -3,22 +3,10 @@
 <div class="container" id="addressForm">
   <h2>Inline form</h2>
   <p>Enter Address Below to Reveal 10 Doctors Closest to You</p>
-  <form class="form-inline" role="form">
+  <form class="form-inline" role="form" action="/upload" method="/post">
     <div class="form-group">
-      <label for="house_number">House Number</label>
-      <input type="number" class="form-control" id="houseNumberID" name="houseNumber" placeholder="Enter House Number" name="houseNumber">
-    </div>
-    <div class="form-group">
-      <label for="street_number">Street</label>
-      <input type="string" class="form-control" id="streetID" placeholder="Enter Street" name="streetName">
-    </div>
-    <div class="form-group">
-      <label for="city_name">City</label>
-      <input type="string" class="form-control" id="cityID" placeholder="Enter City" name="cityName">
-    </div>
-    <div class="form-group">
-      <label for="state">State</label>
-      <input type="string" class="form-control" id="stateID" placeholder="Enter State" name="stateName">
+      <label for="zipcode">Zipcode</label>
+      <input type="number" class="form-control" id="zipcodeID" name="zipcode" placeholder="Enter Zipcode">
     </div>
     <button type="button" id="addressParams" class="btn btn-default">Submit</button>
   </form>
