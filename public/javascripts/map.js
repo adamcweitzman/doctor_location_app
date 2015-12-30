@@ -3,7 +3,8 @@ $(function() {
 
 	//send ajax to get data and
 	//for each zip loop over the zipcodes object
-	//if zip  
+	//if zip
+
 
 	$.ajax({
 		url: '/data',
@@ -34,7 +35,17 @@ $('#addressParams').on('click', function() {
 	    data: zip,
 	    type: 'POST',
 	    success: function(data){
-	        console.log(zip);
+	        console.log(data);
+	//loop over array of objects and create new array of unique zips and there numbers
+
+
+
+
+
+
+
+
+
 	    }
 	});
 	var zipParam = $('#zipcodeID').val()
@@ -65,27 +76,6 @@ $('#addressParams').on('click', function() {
 
 		});
 	};
-
-	// setTimeout(function(){
-		$.ajax({
-		    url: '/upload',
-		    dataType: "json",
-		    type: 'GET',
-		    success: function(data){
-		        console.log('hello');
-	    }
-	});
-
-
-
-
-
-
-
-
-
-	 // }, 1000);
-
 
 
 

@@ -38,13 +38,10 @@ router.post('/upload', function(req, res, next) {
 	q = zips.find({ 'zip':{$in:[zipcode,plus1,plus2,plus3,plus4,plus5,minus1,minus2,minus3,minus4,minus5]}});
 	// q = zips.find({'zip':zipcode}).limit(10)
     q.exec(function(err, data) {
+    //loop over array of objects and create new array of unique zips and their numbers
     	console.log(data)
-    	// res.json(data)
+    	res.send(data)
     });
-});
-
-router.get('/upload', function(req, res, next) {
-	console.log('here')
 });
 
 router.get('/map', function(req, res, next) {
