@@ -36,8 +36,13 @@ $(function() {
 				// marker.bindLabel("My Label", {noHide: true, className: "my-label", offset: [0, 0] });
 				// marker.addTo(map);
 				var keys = Object.getOwnPropertyNames(data)
+				var amount = [];
+				for (var prop in data) {
+					amount.push(data[prop])
+				}
 				for (i = 0; i < keys.length; i++) {
-					getCoordinates(keys[i])
+					console.log('this is the data', amount)
+					getCoordinates(keys[i], amount[i])
 				}
 
 
@@ -53,7 +58,9 @@ $(function() {
 
 	var fake = "1000 mission street san francisco CA"
 
-	function getCoordinates (address) {
+	function getCoordinates (address, zipNumber) {
+
+		var zipString = zipNumber.toString()
 
 		geocoder = new google.maps.Geocoder();
 		geocoder.geocode({ address: address}, function (results, status) {
@@ -68,7 +75,7 @@ $(function() {
 	    attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
 	    }).addTo(map);
 
-	    L.marker([coordinatesA, coordinatesB]).bindLabel('Look revealing label!').addTo(map)
+	    L.marker([coordinatesA, coordinatesB]).bindLabel(address + ": " + zipString,{ noHide: true }).addTo(map)
 
 	    var circle = L.circle([coordinatesA, coordinatesB], 500, {
 	    color: 'red',
