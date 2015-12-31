@@ -35,7 +35,10 @@ $(function() {
 		        //var marker = new L.marker([39.5, -77.3], { opacity: 0.01 });
 				// marker.bindLabel("My Label", {noHide: true, className: "my-label", offset: [0, 0] });
 				// marker.addTo(map);
-
+				var keys = Object.getOwnPropertyNames(data)
+				for (i = 0; i < keys.length; i++) {
+					getCoordinates(keys[i])
+				}
 
 
 
@@ -57,7 +60,7 @@ $(function() {
 		coordinatesA = results[0].geometry.location.lat()
 		coordinatesB = results[0].geometry.location.lng()
 		map.setView(L.latLng([coordinatesA, coordinatesB]))
-		map.setView([coordinatesA, coordinatesB], 9)
+		map.setView([coordinatesA, coordinatesB], 11)
 
 		console.log(coordinatesA, coordinatesB)
 
@@ -68,7 +71,8 @@ $(function() {
 	    var circle = L.circle([coordinatesA, coordinatesB], 500, {
 	    color: 'red',
 	    fillColor: '#f03',
-	    fillOpacity: 0.5
+	    fillOpacity: 0.5,
+	    title: 'ziiiip'
 		}).addTo(map);
 
 		});

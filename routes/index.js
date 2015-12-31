@@ -36,7 +36,7 @@ router.post('/upload', function(req, res, next) {
 	var minus3 = zipcode - 3
 	var minus4 = zipcode - 4
 	var minus5 = zipcode - 5
-	console.log('zipcode plus 1',plus1)
+	console.log('zipcodes being queried',zipcode,plus1,plus2,plus3,plus4,plus5,minus1,minus2,minus3,minus4,minus5)
 	console.log('same thing', (zipcode + 1))
 	q = zips.find({ 'zip':{$in:[zipcode,plus1,plus2,plus3,plus4,plus5,minus1,minus2,minus3,minus4,minus5]}});
 	// q = zips.find({'zip':{$in:[zipcode,plus1,minus1]}})
