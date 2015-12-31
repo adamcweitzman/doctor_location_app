@@ -57,7 +57,7 @@ $(function() {
 		coordinatesA = results[0].geometry.location.lat()
 		coordinatesB = results[0].geometry.location.lng()
 		map.setView(L.latLng([coordinatesA, coordinatesB]))
-		map.setView([coordinatesA, coordinatesB], 7)
+		map.setView([coordinatesA, coordinatesB], 9)
 
 		console.log(coordinatesA, coordinatesB)
 
