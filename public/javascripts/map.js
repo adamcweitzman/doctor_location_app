@@ -1,6 +1,11 @@
 
 $(function() {
 
+	$('.form-inline').submit(function() {
+  		alert('Hello! Please click PIN and wait, pressing ENTER key will not submit request')
+  		return false
+	});
+
 	$.ajax({
 		url: '/data',
 		dataType: "json",
