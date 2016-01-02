@@ -3,7 +3,7 @@ var router = express.Router();
 var zips = require('../model/Zips')
 
 router.get('/', function(req, res, next) {
-	res.render('index');
+	res.redirect('/map');
  });
 
 // router.get('/data', function(req, res, next) {
