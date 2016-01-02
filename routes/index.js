@@ -36,9 +36,19 @@ router.post('/upload', function(req, res, next) {
 	var minus3 = zipcode - 3
 	var minus4 = zipcode - 4
 	var minus5 = zipcode - 5
-	console.log('zipcodes being queried',zipcode,plus1,plus2,plus3,plus4,plus5,minus1,minus2,minus3,minus4,minus5)
+	var plus6 = zipcode + 6
+	var plus7 = zipcode + 7
+	var plus8 = zipcode + 8
+	var plus9 = zipcode + 9
+	var plus10 = zipcode + 10
+	var minus6 = zipcode - 6
+	var minus7 = zipcode - 7
+	var minus8 = zipcode - 8
+	var minus9 = zipcode - 9
+	var minus10 = zipcode - 10
+	console.log('zipcodes being queried',zipcode,plus1,plus2,plus3,plus4,plus5,minus1,minus2,minus3,minus4,minus5,plus6,plus7,plus8,plus9,plus10,minus6,minus7,minus8,minus9,minus10)
 	console.log('same thing', (zipcode + 1))
-	q = zips.find({ 'zip':{$in:[zipcode,minus1,minus2,minus3,minus4,minus5,plus1,plus2,plus3,plus4,plus5]}});
+	q = zips.find({ 'zip':{$in:[zipcode,minus1,minus2,minus3,minus4,minus5,plus1,plus2,plus3,plus4,plus5,plus6,plus7,plus8,plus9,plus10,minus6,minus7,minus8,minus9,minus10]}});
 	// q = zips.find({'zip':{$in:[zipcode,plus1,minus1]}})
     q.exec(function(err, data) {
     //loop over array of objects and create new array of objects of unique zips and number of their occurences

@@ -14,7 +14,7 @@ $(function() {
 		}
 	});
 
-	var map = L.map('map').setView([38, -122], 4)
+	var map = L.map('map').setView([38, -98.57], 4)
 
 	L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
 	    attribution: '&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors'
@@ -67,7 +67,7 @@ $(function() {
 		coordinatesA = results[0].geometry.location.lat()
 		coordinatesB = results[0].geometry.location.lng()
 		map.setView(L.latLng([coordinatesA, coordinatesB]))
-		map.setView([coordinatesA, coordinatesB], 12)
+		map.setView([coordinatesA, coordinatesB], 11)
 
 		console.log(coordinatesA, coordinatesB)
 
