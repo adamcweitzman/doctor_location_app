@@ -1,6 +1,13 @@
 
 $(function() {
 
+	window.onload = function() {
+	    if(!window.location.hash) {
+	        window.location = window.location + '#loaded';
+	        window.location.reload();
+	    }
+	}
+
 	$('.form-inline').submit(function() {
   		alert('Hello! Please click PIN and wait, pressing ENTER key will not submit request')
   		return false
@@ -49,12 +56,6 @@ $(function() {
 					console.log('this is the data', amount)
 					getCoordinates(keys[i], amount[i])
 				}
-
-
-
-
-
-
 		    }
 		});
 		var zipParam = $('#zipcodeID').val()
